@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Random;
 import java.util.logging.Level;
@@ -28,16 +29,27 @@ import javax.swing.JOptionPane;
 public class VistaCliente extends javax.swing.JFrame {
     private int paresTotales;
     private boolean inicio;
+    private float minutos;
+    private float segundos;
+    private float hora;
+    private float tiempoI;
+    private float tiempoF;
+    private float reg;
     private int carta1;
     private int carta2;
     private byte par;
+    private Calendar calendario;
     private JLabel auxLabel;
     private JLabel  auxLabel1;
     private ArrayList<Carta> cartasB;
-    private ArrayList<String> registro;
+    private ArrayList<Float> registro;
+    private Cliente cl;
     public VistaCliente() throws IOException {
+        cl = new Cliente();
+        cl.conectarse();
         initComponents();
         inicio=false;
+        calendario=Calendar.getInstance();
         ImageIcon foto = new ImageIcon("carta.jpg");
         Icon icono = new ImageIcon(foto.getImage().getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_DEFAULT));
         paresTotales=0;
@@ -45,6 +57,7 @@ public class VistaCliente extends javax.swing.JFrame {
         carta2=0;
         par=0;
         auxLabel=null;
+        reg=0;
         registro=new ArrayList<>();
         jLabel1.setIcon(icono);
         jLabel2.setIcon(icono);
@@ -408,6 +421,12 @@ public class VistaCliente extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         inicio=true;
         System.out.println(inicio);
+        minutos=calendario.get(Calendar.MINUTE);
+        segundos=calendario.get(Calendar.SECOND);
+        hora = calendario.get(Calendar.HOUR_OF_DAY);
+        
+        tiempoI=(hora*60)+minutos+(segundos/60);
+        System.out.println("tiempo: "+tiempoI);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -544,12 +563,13 @@ public class VistaCliente extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -688,7 +708,16 @@ public class VistaCliente extends javax.swing.JFrame {
         }
         if(paresTotales==10){
             String opcion= JOptionPane.showInputDialog(null, "¡Ganaste!\nDeseas jugar de nuevo(si/no): ").toLowerCase();
-            System.out.println(opcion);
+            Calendar c = Calendar.getInstance();
+            minutos=c.get(Calendar.MINUTE);
+            segundos=c.get(Calendar.SECOND);  
+            hora = c.get(Calendar.HOUR_OF_DAY);
+            
+            tiempoF= (hora*60)+minutos+(segundos/60);
+            reg = Math.round(((tiempoF-tiempoI)*100)/100);
+            System.out.println("tiempo: "+tiempoF);
+            registro.add(reg);
+            
             if(opcion.equals("si")){
                     revolver(cartasB);
                     ImageIcon a = new ImageIcon("carta.jpg");
@@ -721,9 +750,18 @@ public class VistaCliente extends javax.swing.JFrame {
                     paresTotales=0;
                     inicio=false;
             }else{
-                System.out.println("Enviamos los datos de registro");
+                //Ordenamos el array ascendentemente
+                Collections.sort(registro);
+                Cliente cl= new Cliente();
+                try {
+                    cl.enviar_registro(registro);
+                } catch (IOException ex) {
+                    Logger.getLogger(VistaCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
             System.out.println("Ganaste");
+            System.exit(0);
         }
    } 
    

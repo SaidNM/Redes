@@ -7,11 +7,13 @@ package memorama;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
-public class Recibe {
+public class Cliente {
     private static final String HOST = "127.0.0.1";
     private static final int PUERTO = 7800;
-    public static void main(String[] args) throws IOException {
+            
+    public void conectarse() throws IOException {
         Socket cl = new Socket(HOST,PUERTO);
         System.out.println("Conexion establecida");
         File nuevo = new File("imagenes");
@@ -30,7 +32,7 @@ public class Recibe {
             String nombre = d.readUTF();
             int n;
             long tam = d.readLong();
-            DataOutputStream a = new DataOutputStream(new FileOutputStream(nombre));
+            DataOutputStream a = new DataOutputStream(new FileOutputStream("imagenes/"+nombre));
             long recibidos =0;
             while(recibidos<tam){
                 byte[] b = new byte[1500];
@@ -41,5 +43,17 @@ public class Recibe {
             }
             System.out.println("Archivo recibido");
         }
+    }
+    public void enviar_registro(ArrayList<Float> registro) throws IOException{
+        String datos="Tiempos: ";
+        for(Float dato: registro){
+            datos+=(Float.toString(dato))+"-----";
+        }
+        Socket cl = new Socket(HOST,PUERTO);
+        System.out.println("Conexion establecida");
+        DataOutputStream dos = new DataOutputStream(cl.getOutputStream());
+        dos.writeUTF(datos);
+        dos.flush();
+        cl.close();
     }
 }
