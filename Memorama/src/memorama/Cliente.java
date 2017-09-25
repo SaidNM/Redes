@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Cliente {
     private static final String HOST = "127.0.0.1";
-    private static final int PUERTO = 7800;
+    private static final int PUERTO = 7805;
             
     public void conectarse() throws IOException {
         Socket cl = new Socket(HOST,PUERTO);

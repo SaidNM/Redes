@@ -38,7 +38,6 @@ public class VistaCliente extends javax.swing.JFrame {
     private int carta1;
     private int carta2;
     private byte par;
-    private Calendar calendario;
     private JLabel auxLabel;
     private JLabel  auxLabel1;
     private ArrayList<Carta> cartasB;
@@ -49,7 +48,6 @@ public class VistaCliente extends javax.swing.JFrame {
         cl.conectarse();
         initComponents();
         inicio=false;
-        calendario=Calendar.getInstance();
         ImageIcon foto = new ImageIcon("carta.jpg");
         Icon icono = new ImageIcon(foto.getImage().getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(),Image.SCALE_DEFAULT));
         paresTotales=0;
@@ -421,6 +419,7 @@ public class VistaCliente extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         inicio=true;
         System.out.println(inicio);
+        Calendar calendario=Calendar.getInstance(); 
         minutos=calendario.get(Calendar.MINUTE);
         segundos=calendario.get(Calendar.SECOND);
         hora = calendario.get(Calendar.HOUR_OF_DAY);
@@ -437,116 +436,116 @@ public class VistaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-    if(!cartasB.get(1).isBocaArriba())
-        voltear(jLabel2,1);
+    if(!cartasB.get(1).isBocaArriba()){
+        voltear(jLabel2,1);}
         //Compara(jLabel2);
         //this.repaint();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-               if(!cartasB.get(2).isBocaArriba()) voltear(jLabel3,2);
+               if(!cartasB.get(2).isBocaArriba()) {voltear(jLabel3,2);}
         //Compara(jLabel3);
         //this.repaint();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-                if(!cartasB.get(3).isBocaArriba())voltear(jLabel4,3);
+                if(!cartasB.get(3).isBocaArriba()){voltear(jLabel4,3);}
         //Compara(jLabel4);
         //this.repaint();
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-                if(!cartasB.get(4).isBocaArriba())voltear(jLabel5,4);
+                if(!cartasB.get(4).isBocaArriba()){voltear(jLabel5,4);}
         //Compara(jLabel5);
         //this.repaint();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-                if(!cartasB.get(5).isBocaArriba())voltear(jLabel6,5);
+                if(!cartasB.get(5).isBocaArriba()){voltear(jLabel6,5);}
         //Compara(jLabel6);
         //this.repaint(); 
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-                if(!cartasB.get(6).isBocaArriba())voltear(jLabel7,6);
+                if(!cartasB.get(6).isBocaArriba()){voltear(jLabel7,6);}
         //Compara(jLabel7);
         //this.repaint();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-                if(!cartasB.get(7).isBocaArriba())voltear(jLabel8,7);
+                if(!cartasB.get(7).isBocaArriba()){voltear(jLabel8,7);}
         //Compara(jLabel8);
         //this.repaint();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-                if(!cartasB.get(8).isBocaArriba())voltear(jLabel9,8);
+                if(!cartasB.get(8).isBocaArriba()){voltear(jLabel9,8);}
         //Compara(jLabel9);
         //this.repaint();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-                if(!cartasB.get(9).isBocaArriba())voltear(jLabel10,9);
+                if(!cartasB.get(9).isBocaArriba()){voltear(jLabel10,9);}
         //Compara(jLabel10);
         //this.repaint();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-                if(!cartasB.get(10).isBocaArriba())voltear(jLabel11,10);
+                if(!cartasB.get(10).isBocaArriba()){voltear(jLabel11,10);}
         //Compara(jLabel11);
         //this.repaint();
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-                if(!cartasB.get(11).isBocaArriba())voltear(jLabel12,11);
+                if(!cartasB.get(11).isBocaArriba()){voltear(jLabel12,11);}
         //Compara(jLabel12);
         //this.repaint();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-                if(!cartasB.get(12).isBocaArriba())voltear(jLabel13,12);
+                if(!cartasB.get(12).isBocaArriba()){voltear(jLabel13,12);}
         //Compara(jLabel13);
         //this.repaint();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-                if(!cartasB.get(13).isBocaArriba())voltear(jLabel14,13);
+                if(!cartasB.get(13).isBocaArriba()){voltear(jLabel14,13);}
         //Compara(jLabel14);
         //this.repaint();
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-                if(!cartasB.get(14).isBocaArriba())voltear(jLabel15,14);
+                if(!cartasB.get(14).isBocaArriba()){voltear(jLabel15,14);}
         //Compara(jLabel15);
         //this.repaint();
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-                if(!cartasB.get(15).isBocaArriba())voltear(jLabel16,15);
+                if(!cartasB.get(15).isBocaArriba()){voltear(jLabel16,15);}
         //Compara(jLabel16);
         //this.repaint();
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-                if(!cartasB.get(16).isBocaArriba())voltear(jLabel17,16);
+                if(!cartasB.get(16).isBocaArriba()){voltear(jLabel17,16);}
         //Compara(jLabel17);
         //this.repaint();
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-                if(!cartasB.get(17).isBocaArriba())voltear(jLabel18,17);
+                if(!cartasB.get(17).isBocaArriba()){voltear(jLabel18,17);}
         //Compara(jLabel18);
         //this.repaint();
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-                if(!cartasB.get(18).isBocaArriba()) voltear(jLabel19,18);
+                if(!cartasB.get(18).isBocaArriba()) {voltear(jLabel19,18);}
         //Compara(jLabel19);
         //this.repaint();
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-                if(!cartasB.get(19).isBocaArriba()) voltear(jLabel20,19);
+                if(!cartasB.get(19).isBocaArriba()){ voltear(jLabel20,19);}
         //Compara(jLabel20);
         //this.repaint();
     }//GEN-LAST:event_jLabel20MouseClicked
@@ -758,10 +757,9 @@ public class VistaCliente extends javax.swing.JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(VistaCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+                System.exit(0);
             }
             System.out.println("Ganaste");
-            System.exit(0);
         }
    } 
    

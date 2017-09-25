@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  * @author saidn
  */
 public class ServidorMemorama {
-    private static final int PUERTO = 7800;
+    private static final int PUERTO = 7805;
     
     public static void main(String[] args) throws IOException {
         File imagenes = new File("C:/Users/saidn/Documents/Redes/ServidorMemorama/imagenes");
