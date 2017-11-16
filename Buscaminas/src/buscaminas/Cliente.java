@@ -24,7 +24,7 @@ public class Cliente {
     public static final byte NIVEL_INTERMEDIO = 16;
     public static final byte NIVEL_EXPERTO = 30;
 
-    public static final byte MINAS_NIVEL_PRINCIPANTE = 10;
+    public static final byte MINAS_NIVEL_PRINCIPANTE = 3;
     public static final byte MINAS_NIVEL_INTERMEDIO = 40;
     public static final byte MINAS_NIVEL_EXPERTO = 99;
 
